@@ -5,7 +5,7 @@ import random
 guerreiro = [60, 7, 14, 6, 12]
 mago = [40, 9, 18, 7, 15]
 ladino = [30, 8, 20, 7, 15]
-itens = ["anel de força", "poção de cura"]
+itens = ["poção de cura"]
 
 #Colocamos todas as classes como uma sublista na lista de classes
 classes = [guerreiro, mago, ladino]
