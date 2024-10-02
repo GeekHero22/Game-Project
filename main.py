@@ -21,12 +21,8 @@ stats_jogador2 = []
 #Função que permite que ambos os jogadores escolham sua classe
 def escolher_classe(jogador):
     #Mensagem de boas-vindas, que também informa as turmas
-    print(
-        "Bem-vindo ao jogo: 'Encontro das Sombras'! Guerreiros, Magos e Ladinos esperam por você."
-    )
-    print(
-        "A aventura começa! Primeiro, escolha sua classe: 1 para ser Guerreiro, 2 para Mago ou 3 para Ladino."
-    )
+    print("Bem-vindo ao jogo: 'Encontro das Sombras'! Guerreiros, Magos e Ladinos esperam por você.")
+    print("A aventura começa! Primeiro, escolha sua classe: 1 para ser Guerreiro, 2 para Mago ou 3 para Ladino.")
 
     #Com "global" fazemos com que as variáveis possam ser usadas
     global classes, stats_jogador1, stats_jogador2
@@ -44,9 +40,7 @@ def escolher_classe(jogador):
             else:
                 stats_jogador2 = classes[escolha - 1]
 
-            print(
-                f"{jogador} escolheu ser um {'Guerreiro' if escolha == 1 else 'Mago' if escolha == 2 else 'Ladino'}."
-            )
+            print(f"{jogador} escolheu ser um {'Guerreiro' if escolha == 1 else 'Mago' if escolha == 2 else 'Ladino'}.")
 
             #Para sair do loop se as classes escolhidas estiverem corretas
             break
@@ -84,18 +78,12 @@ def batalha(vida_jogador1, stats_jogador1, vida_jogador2, stats_jogador2):
         #Loop dos turnos dos jogadores
         for jogador in range(1, 3):
             if jogador == 1:
-                escolha = int(
-                    input(
-                        "Jogador 1, digite 1 para atacar, 2 para defender ou 3 para usar um item: "
-                    ))
+                escolha = int(input("Jogador 1, digite 1 para atacar, 2 para defender ou 3 para usar um item: "))
                 stats = stats_jogador1
                 vida_atual = vida_jogador1
 
             else:
-                escolha = int(
-                    input(
-                        "Jogador 2, digite 1 para atacar, 2 para defender ou 3 para usar um item: "
-                    ))
+                escolha = int(input("Jogador 2, digite 1 para atacar, 2 para defender ou 3 para usar um item: "))
                 stats = stats_jogador2
                 vida_atual = vida_jogador2
 
@@ -109,14 +97,10 @@ def batalha(vida_jogador1, stats_jogador1, vida_jogador2, stats_jogador2):
                 if dado >= stats[4]:
                     if jogador == 1:
                         defesa_jogador1 = True
-                        print(
-                            f"O jogador 1 está defendendo! Só receberá metade do dano."
-                        )
+                        print(f"O jogador 1 está defendendo! Só receberá metade do dano.")
                     else:
                         defesa_jogador2 = True
-                        print(
-                            f"O jogador 2 está defendendo! Só receberá metade do dano."
-                        )
+                        print(f"O jogador 2 está defendendo! Só receberá metade do dano.")
                 else:
                     if jogador == 1:
                         defesa_jogador1 = False
@@ -144,54 +128,38 @@ def batalha(vida_jogador1, stats_jogador1, vida_jogador2, stats_jogador2):
                     #Se algum dos jogadores se defender, o dano que toma se tem que dividir
                     if jogador == 1 and defesa_jogador2:
                         dano = dano // 2
-                        print(
-                            "A defesa reduz o dano tomado por Jogador 2 pela metade!"
-                        )
+                        print("A defesa reduz o dano tomado por Jogador 2 pela metade!")
 
                     elif jogador == 2 and defesa_jogador1:
                         dano = dano // 2
-                        print(
-                            "A defesa reduz o dano tomado por Jogador 1 pela metade!"
-                        )
+                        print("A defesa reduz o dano tomado por Jogador 1 pela metade!")
 
                     if jogador == 1:
                         vida_jogador2 -= dano
-                        print(
-                            f"O Jogador 2 recebeu {dano} de dano e está com {vida_jogador2} de vida!"
-                        )
+                        print(f"O Jogador 2 recebeu {dano} de dano e está com {vida_jogador2} de vida!")
 
                     else:
                         vida_jogador1 -= dano
-                        print(
-                            f"O Jogador 1 recebeu {dano} de dano e está com {vida_jogador1} de vida!"
-                        )
+                        print(f"O Jogador 1 recebeu {dano} de dano e está com {vida_jogador1} de vida!")
 
                 #Se o dado estiver abaixo do mínimo, o acerto é um erro e o dano é 0
                 else:
                     if jogador == 1:
-                        print(
-                            f"Ataque errou! A vida do jogador 2 não é afetada."
-                        )
+                        print(f"Ataque errou! A vida do jogador 2 não é afetada.")
 
                     else:
-                        print(
-                            f"Ataque errou! A vida do jogador 1 não é afetada."
-                        )
+                        print(f"Ataque errou! A vida do jogador 1 não é afetada.")
 
             #Se a escolha for um item
             elif escolha == 3:
-                print(
-                    f"jogador {jogador} decidiu utilizar um item, digite 1 para usar a poção (apenas um uso) ou digite qualquer outra coisa para cancelar."
-                )
+                print(f"jogador {jogador} decidiu utilizar um item, digite 1 para usar a poção (apenas um uso) ou digite qualquer outra coisa para cancelar.")
                 escolha_item = (input(""))
                 if int(escolha_item) == 1:
                     if jogador == 1:
                         if not pocao_usada_jogador1:
                             vida_jogador1 += 10
                             pocao_usada_jogador1 = True
-                            print(
-                                f"O Jogador 1 foi curado, sua vida atual agora é: {vida_jogador1}"
-                            )
+                            print(f"O Jogador 1 foi curado, sua vida atual agora é: {vida_jogador1}")
 
                         else:
                             print("O Jogador 1 já usou a poção!")
@@ -200,9 +168,7 @@ def batalha(vida_jogador1, stats_jogador1, vida_jogador2, stats_jogador2):
                         if not pocao_usada_jogador2:
                             vida_jogador2 += 10
                             pocao_usada_jogador2 = True
-                            print(
-                                f"O Jogador 2 foi curado, sua vida atual agora é: {vida_jogador2}"
-                            )
+                            print(f"O Jogador 2 foi curado, sua vida atual agora é: {vida_jogador2}")
 
                         else:
                             print("O Jogador 2 já usou a poção!")
@@ -213,15 +179,11 @@ def batalha(vida_jogador1, stats_jogador1, vida_jogador2, stats_jogador2):
     #Condição para encerrar o jogo, informar o vencedor, se a vida de alguém for menor ou igual a 0
     if vida_jogador1 <= 0:
         print("Jogador 2 venceu!")
-        print(
-            "Obrigado por jogar 'Encontro das Sombras'! Esperamos que tenha se divertido!"
-        )
+        print("Obrigado por jogar 'Encontro das Sombras'! Esperamos que tenha se divertido!")
 
     elif vida_jogador2 <= 0:
         print("Jogador 1 venceu!")
-        print(
-            "Obrigado por jogar 'Encontro das Sombras'! Esperamos que tenha se divertido!"
-        )
+        print("Obrigado por jogar 'Encontro das Sombras'! Esperamos que tenha se divertido!")
 
 
 #Função do jogo final
